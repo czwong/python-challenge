@@ -23,9 +23,6 @@ def social_security(ssn):
     # for number_list in x[:2]:
     #     # for numbers in range(len(number_list)):
     #         # x[x.index(number_list)]=number_list.replace(number_list[numbers],'*')
-    #     print(number_list)
-        
-    # print(number_list)
 
     # number_list.replace(number_list[numbers],'*') for number_list in x[:2] for numbers in range(len(number_list)))
     
