@@ -34,7 +34,6 @@ with open(csvpath, newline='') as csvfile:
             pass
     # max_index=greatest_increase.index(max(greatest_increase))
     # min_index=greatest_decrease.index(min(greatest_decrease))
-        
     
 
     print("\nFinancial Analysis \n----------------------------")
@@ -45,7 +44,7 @@ with open(csvpath, newline='') as csvfile:
 
 bank=open("PyBank.txt","w")
 
-bank.write("\nFinancial Analysis \n----------------------------")
+bank.write("Financial Analysis \n----------------------------")
 bank.write(f"\nTotal Month: {str(total_month)}")
 bank.write(f"\nTotal: ${str(total_amount)}")
 bank.write(f"\nGreatest Increase in Profit: {greatest_increase[0]} ({greatest_increase[1]})")
