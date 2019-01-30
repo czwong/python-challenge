@@ -16,6 +16,7 @@ with open(csvpath, newline='') as csvfile:
     total_amount=0
     greatest_increase=first_row
     greatest_decrease=first_row
+    profit_loss = []
 
     csvfile.seek(0)
     next(csvreader)
@@ -23,6 +24,7 @@ with open(csvpath, newline='') as csvfile:
     for i in csvreader:
         total_month+=1
         total_amount+=int(i[1])
+        profit_loss.append(i[1])
 
         if int(i[1])>int(greatest_increase[1]):
             greatest_increase=i
@@ -32,10 +34,18 @@ with open(csvpath, newline='') as csvfile:
 
         else:
             pass
-    # max_index=greatest_increase.index(max(greatest_increase))
-    # min_index=greatest_decrease.index(min(greatest_decrease))
+
+    change=[]
+
+    for i in range(len(profit_loss))[1:]:
+        change.append(int(profit_loss[i])-int(profit_loss[i-1]))
+
+    average = 0
     
-    average=round(total_amount/total_month,2)
+    for i in change:
+        average+=i
+    
+    average = round(average/len(change),2)
 
     print("\nFinancial Analysis \n----------------------------")
     print(f"Total Month: {str(total_month)}")

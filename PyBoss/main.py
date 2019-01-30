@@ -18,13 +18,16 @@ def social_security(ssn):
 
     x = ssn.split("-")
 
-    x[0]='***'
-    x[1]='**'
-    # for number_list in x[:2]:
-    #     # for numbers in range(len(number_list)):
-    #         # x[x.index(number_list)]=number_list.replace(number_list[numbers],'*')
+    #Reads first two elements in list x containing SSN
+    for elements in x[:2]:
 
-    # number_list.replace(number_list[numbers],'*') for number_list in x[:2] for numbers in range(len(number_list)))
+        #Replaces numbers with * depending on length
+        empty_str = ''
+        for i in range(len(elements)):
+            empty_str+='*'
+
+        #Rather than hard coding x[0]='***' and x[1]='**', this can hide SSN of any length
+        x[x.index(elements)]=empty_str
     
     social = '-'.join(x)
     
