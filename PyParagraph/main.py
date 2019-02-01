@@ -12,17 +12,25 @@ with open(txtpath,'r') as txtfile:
 
     word_count=0
     sentence_count=0
-
-    for i in txtreader.split(' '):
-        print(i)
+    word = []
+    sentence = []
+    print(repr(txtreader))
+    for i in re.split("[,-.!?\s]",txtreader):
         word_count+=1
+        # print(i)
+        word.append(i)
     
-    for i in re.split("[.!?]\s",txtreader):
+    for i in re.split("([.!?]?<=) +",txtreader):
         sentence_count+=1
+        sentence.append(i)
 
-    for i in re.split("[\s,.!?]\s",txtreader):
-        print(i)
+    letters=[]
+    for i in word:
+        letters.append(re.split("[,]",i))
+    
+
     print(word_count)
     print(sentence_count)
+    # print(sentence)
 
 

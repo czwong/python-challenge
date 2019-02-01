@@ -10,6 +10,7 @@ with open(csvpath, newline='') as csvfile:
 
     header=next(csvreader)
 
+    #This row will be used to find greatest_increase and greatest_decrease
     first_row=next(csvreader)
 
     total_month=0
@@ -18,18 +19,29 @@ with open(csvpath, newline='') as csvfile:
     greatest_decrease=first_row
     profit_loss = []
 
+    #Reads back to beginning of file
     csvfile.seek(0)
+
+    #Skip header
     next(csvreader)
 
     for i in csvreader:
         total_month+=1
         total_amount+=int(i[1])
+
+        #Append profit/loss column to empty list
         profit_loss.append(i[1])
 
+        #Checks to see if next row is greater than current value
         if int(i[1])>int(greatest_increase[1]):
+            
+            #If true, greatest_increase equals to new row
             greatest_increase=i
         
+        #Checks to see if next row is lower than current value
         elif int(i[1])<int(greatest_decrease[1]):
+
+            #If true, greatest_decrease equals to new row
             greatest_decrease=i
 
         else:
@@ -37,6 +49,7 @@ with open(csvpath, newline='') as csvfile:
 
     change=[]
 
+    #Start at i=1, starting at second index of list
     for i in range(len(profit_loss))[1:]:
         change.append(int(profit_loss[i])-int(profit_loss[i-1]))
 
